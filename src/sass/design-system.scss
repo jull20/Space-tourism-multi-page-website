@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Bellefair';
+    src: url(../assets/font/Bellefair/Bellefair-Regular.ttf);
+}
+@font-face {
+    font-family: 'Barlow Condensed';
+    src: url(../assets/font/Barlow_Condensed/BarlowCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: 'Barlow';
+    src: url(../assets/font/Barlow/Barlow-Regular.ttf);
+}
+
+$white:    #FFFFFF;
+$blue-300: #D0D6F9;
+$blue-900: #0B0D17;
+
+$s-25:   .2rem;
+$s-50:   .4rem;
+$s-100:  .8rem;
+$s-150:  1.2rem;
+$s-200:  1.6rem;
+$s-300:  2.4rem;
+$s-400:  3.2rem;
+$s-500:  4rem;
+$s-600:  4.8rem;
+$s-800:  6.4rem;
+$s-1000: 8rem;
+$s-1200: 9.6rem;
+$s-1600: 12.8rem;
+
+
+@mixin text-preset-1{
+    font-family:    'Bellefair';
+    font-size:      14.4rem;
+    font-weight:    400;
+    line-height:    16.5rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-1-mobile{
+    font-family:    'Bellefair';
+    font-size:      8rem;
+    font-weight:    400;
+    line-height:    9.17rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-2{
+    font-family:    'Bellefair';
+    font-size:      10rem;
+    font-weight:    400;
+    line-height:    11.46%;
+    letter-spacing: 0;
+}
+@mixin text-preset-3{
+    font-family:    'Bellefair';
+    font-size:      5.6rem;
+    font-weight:    400;
+    line-height:    6.42%;
+    letter-spacing: 0;
+}
+@mixin text-preset-4{
+    font-family:    'Bellefair';
+    font-size:      3.2rem;
+    font-weight:    400;
+    line-height:    3.67%;
+    letter-spacing: 0;
+}
+@mixin text-preset-5{
+    font-family:    'Barlow Condensed';
+    font-size:      2.8rem;
+    font-weight:    400;
+    line-height:    3.36rem;
+    letter-spacing: .4rem;
+}
+@mixin text-preset-6{
+    font-family:    'Bellefair';
+    font-size:      2.8rem;
+    font-weight:    400;
+    line-height:    3.21rem;
+    letter-spacing: 0;
+}
+@mixin text-preset-7{
+    font-family:    'Barlow Condensed';
+    font-size:      1.4rem;
+    font-weight:    400;
+    line-height:    1.68%;
+    letter-spacing: .2rem;
+}
+@mixin text-preset-8{
+    font-family:    'Barlow Condensed';
+    font-size:      1.6rem;
+    font-weight:    400;
+    line-height:    1.92rem;
+    letter-spacing: .2rem;
+}
+@mixin text-preset-9{
+    font-family:    'Barlow';
+    font-size:      1.8rem;
+    font-weight:    400;
+    line-height:    180%;
+    letter-spacing: 0;
+}
+@mixin text-preset-9-mobile{
+    font-family:    'Barlow';
+    font-size:      1.5rem;
+    font-weight:    400;
+    line-height:    180%;
+    letter-spacing: 0;
+}
+@mixin flex($direction, $main-axis, $cross-axis){
+    display:         flex;
+    flex-direction:  $direction;
+    justify-content: $main-axis;
+    align-items:     $cross-axis;
+}

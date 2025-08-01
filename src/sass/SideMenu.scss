@@ -1,0 +1,56 @@
+.sideMenu{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include flex(row, flex-end, flex-start);
+    overflow: hidden;
+}
+.sideMenu__content{
+    padding: $s-400 0 0 $s-400;
+    width: clamp(10rem, 65vw, 32rem);
+    height: 100%;
+    background-color: rgba(11, 13, 23, 0.15);
+    backdrop-filter: blur($s-500);
+    @include flex(column, flex-start, flex-start);
+    gap: $s-1000 0;
+    animation-name: openMenu;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+
+    transform: translate(-10px);
+
+}
+.sideMenu__close{
+    align-self: flex-end;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    padding-right: $s-300;
+}
+.closeMenuAnimation{
+    animation-name: closeMenu;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes openMenu {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeMenu {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
