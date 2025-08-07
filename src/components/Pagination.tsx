@@ -23,10 +23,10 @@ function RadioButtons({length, handler}: paginationType){
     const array = Array(length).fill(0);
     return(
         <>
-            {array.map((el, index:number) => {
+            {array.map((el:number, index:number) => {
                 return(
                     <li 
-                        key={index}
+                        key={el+index}
                         className="radioBtn__wrapper" 
                         onClick={()=>handler(index)} 
                     >
