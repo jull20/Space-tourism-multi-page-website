@@ -1,0 +1,72 @@
+.pageTextContent__wrapper{
+    @include flex(column, flex-start, center);
+    @media screen and (min-width:1024px) {
+        @include flex(column, flex-start, flex-start);
+    }
+    &:has(.home-text){
+        gap: 2.4rem 0;
+    }
+    &:has(.crew-text){
+        gap: 1.6rem 0;
+    }
+    &:has(.technology-text){
+        gap: 1.6rem 0;
+    }
+}
+.text-sm{
+    &.home-text{
+        color: $blue-300;
+        @include text-preset-9;
+    }
+    &.destination-text{
+        color: $blue-300;
+        @include text-preset-9;
+    }
+    &.crew-text{
+        color: $blue-300;
+        @include text-preset-9;
+    }
+    &.technology-text{
+        color: $blue-300;
+        @include text-preset-9;
+    }
+}
+.text-md{
+    &.home-text{
+        text-transform: uppercase;
+        color: $blue-300;
+        @include text-preset-5;
+    }
+    &.crew-text{
+        color: rgba(255, 255, 255, 0.5);
+        @include text-preset-4;
+        text-transform: uppercase;
+    }
+    &.technology-text{
+        color: rgba(255, 255, 255, 0.5);
+        @include text-preset-4;
+        text-transform: uppercase;
+    }
+}
+.text-lg{
+    &.home-text{
+        text-transform: uppercase;
+        color: $white;
+        @include text-preset-1;
+    }
+    &.destination-text{
+        color: $white;
+        @include text-preset-2;
+        text-transform: uppercase;
+    }
+    &.crew-text{
+        color: $white;
+        @include text-preset-3;
+        text-transform: uppercase;
+    }
+    &.technology-text{
+        color: $white;
+        @include text-preset-3;
+        text-transform: uppercase;
+    }
+}

@@ -1,0 +1,87 @@
+.paginatinon{
+    width: auto;
+    @include flex(row, center, center);
+    gap: 0 1.6rem;
+    @media screen and (min-width:1024px) {
+        gap: 0 4rem;
+    }
+
+    & .radioBtn__item{
+        appearance: none;
+        width:  1rem;
+        aspect-ratio: 1/1;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 100%;
+        transition: 300ms;
+        &:checked{
+            background-color: white;
+        }
+        &:active{
+            filter: brightness(70%);
+        }
+        @media screen and (min-width:1024px) {
+            width:  1.5rem;
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}
+
+
+
+.numberedPagination{
+    width: auto;
+    @include flex(row, center, center);
+    gap: 0 1.6rem;
+    @media screen and (min-width:1024px) {
+        @include flex(column, center, center);
+        gap: 3.2rem 0;
+    }
+    counter-reset: item 0;
+    list-style-type: none;
+    
+
+    & .radioBtn__wrapper{
+        transition: 300ms;
+        position: relative;
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: inline-block;
+            content: counter(item) " ";
+            counter-increment: item;
+            color: white;
+            @include text-preset-4;
+        }
+        &:has(.radioBtn__item:checked){
+            &::before{
+                color: black;
+            }
+        }
+        &:active{
+            filter: brightness(50%);
+        }
+    }
+    & .radioBtn__item{
+        appearance: none;
+        width:  clamp(4rem, 7.4vw, 8rem);
+        aspect-ratio: 1/1;
+        border: .1rem solid rgba(255, 255, 255, 0.25);
+        border-radius: 100%;
+        transition: 300ms;
+        &:checked{
+            background-color: white;
+        }
+        @media screen and (min-width:1024px) {
+            &:hover{
+                border: .1rem solid rgba(255, 255, 255);
+            }
+        }
+
+
+        
+    }
+}

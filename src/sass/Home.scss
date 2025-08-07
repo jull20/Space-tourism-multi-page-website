@@ -1,56 +1,77 @@
 .home{
-    width: 100%;
     height: 100%;
+    width: 100%;
     text-align: center;
-    @include flex(column, flex-start, center);
-    @media screen and (min-width: 1024px){
-        width: clamp(80rem, 77vw, 200rem);
+    @media screen and (max-width: 450px) {
+        @include flex(column, flex-start, center);
+        padding: clamp(2rem, 3vh, 3.2rem) 0;
+    }
+    @media screen and (min-width: 450px) and (max-width: 1024px){
+        @include flex(column, center, center);
+        gap: 7vh 0;    
+    }
+    @media screen and (min-width: 1024px) {
+        height: auto;
         @include flex(row, space-between, center);
+        align-self: flex-end;
         text-align: start;
+        padding: 12.5vh 0;
     }
 }
-.home__text-content{
-    @include flex(column, flex-start, center);
-    gap: 2.4rem 0;
-    @media screen and (min-width: 450px){
-        width: clamp(40rem, 67vw, 54rem);
-    }
-}
-.home__text-sm{
-    color: $blue-300;
-    @include text-preset-9();
-    @media screen and (max-width: 1024px) {
-        @include text-preset-9-mobile();
-    }
-}
-.home__text-md{
-    text-transform: uppercase;
-    color: $blue-300;
-    @include text-preset-5();
-    @media screen and (max-width: 450px) {
-        @include text-preset-8();
-    }
-}
-.home__text-lg{
-    text-transform: uppercase;
-    color: $white;
-    @include text-preset-1();
-    @media screen and (max-width: 450px) {
-        @include text-preset-1-mobile();
-    }
+.home__text-wrapper{
+    // @include flex(column, flex-start, center);
+    // gap: 2.4rem 0;
+    // @media screen and (min-width: 1025px) {
+    //     @include flex(column, flex-start, flex-start);
+    // }
+    // @media screen and (min-width: 450px){
+    //     width: clamp(40rem, 67vw, 54rem);
+    // }
+    // max-width: 54rem;
+    @include text-wrapper-style(2.4rem, 54rem);
 }
 .button-wrapper{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    place-content: center;
+    @include flex(column, flex-end, center);
+    @media screen and (max-width: 450px) {
+        height: 100%;
+        width: 100%;
+        @include flex(column, center, center);
+    }
     @media screen and (min-width: 1024px){
         width: auto;
     }
 }
 .home__exploreBtn{
+    @include flex(column, center, center);
     width:  clamp(10rem, 39vw, 27.2rem);
     aspect-ratio: 1/1;
     border-radius: 100%;
     background-color: $white;
+    color: $blue-900;
+    @include text-preset-4;
+    text-transform: uppercase;
+    // transition: 300ms;
+    outline: 0 solid rgba(255, 255, 255, 0.13);
+    transition: outline 1s;
+    &:hover{
+        outline: 88px solid rgba(255, 255, 255, 0.13);
+        color: rgba(11, 13, 23, 0.5);
+    }
+}
+
+@keyframes exploreBorderUp{
+    from{
+        outline: 0 solid rgba(255, 255, 255, 0.13);
+    }
+    to{
+        outline: 88px solid rgba(255, 255, 255, 0.13);
+    }
+}
+@keyframes exploreBorderDown{
+    from{
+        outline: 88px solid rgba(255, 255, 255, 0.13);
+    }
+    to{
+        outline: 0 solid rgba(255, 255, 255, 0.13);
+    }
 }

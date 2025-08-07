@@ -1,0 +1,80 @@
+.crew{
+    @include thematicallPage;
+}
+.crew-item{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    @include flex(column, flex-start, center);
+    gap: 3.2rem;
+    @media screen and (min-width: 1024px) {
+        @include flex(row, space-between, center);
+    }
+}
+.crew-item__content{
+    flex-grow: 0;
+    @include flex(column, center, center);
+    gap: 2.4rem 0;
+    @media screen and (min-width: 1024px) {
+        flex-basis: 50%;
+        max-width: 55rem;
+        height: 100%;
+        padding-bottom: 4.8rem;
+        display: grid;
+        grid-template-rows: 4fr auto;
+    }
+    @media screen and (max-width: 1024px) {
+        padding-top: 4rem;
+    }
+}
+.crew-item__text-wrapper{
+    @include flex(column, flex-start, center);
+    gap: 2.4rem 0;
+    width: 100%;
+
+    @media screen and (min-width: 450px) and (max-width: 1024px) {
+        width: 67vw;
+    }
+    @media screen and (min-width: 1024px) {
+        text-align: start;
+        @include flex(column, flex-start, flex-start);
+    }
+}
+.crew-item__pagination-wrapper{
+    justify-self: flex-end;
+    width: 100%;
+    @include flex(column, center, center);
+    @media screen and (min-width: 1024px) {
+        @include flex(column, center, flex-start);
+        justify-self: flex-end;
+    }
+}
+.crew-item__img{
+    flex-grow: 1;
+    position: relative;
+    @media screen and (min-width:450px) and (max-width: 1024px) {
+        top: 42px;   
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 100%;
+        height: 65px; 
+        background: 
+            linear-gradient(to top, 
+                rgb(11, 13, 23)         0%, 
+                rgba(11, 13, 23, 0.85)  20%, 
+                rgba(11, 13, 23, 0.65)  40%, 
+                rgba(11, 13, 23, 0.45)  60%, 
+                rgba(11, 13, 23, 0.25)  80%, 
+                rgba(11, 13, 23, 0)     100%
+            );
+    }
+
+    @media screen and (max-width: 1024px) {
+        height: 1px;
+    }
+}

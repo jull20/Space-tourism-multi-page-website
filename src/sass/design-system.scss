@@ -32,45 +32,39 @@ $s-1600: 12.8rem;
 
 @mixin text-preset-1{
     font-family:    'Bellefair';
-    font-size:      14.4rem;
+    font-size:      clamp(8rem, 21.5vw, 14.4rem);
     font-weight:    400;
-    line-height:    16.5rem;
-    letter-spacing: 0;
-}
-@mixin text-preset-1-mobile{
-    font-family:    'Bellefair';
-    font-size:      8rem;
-    font-weight:    400;
-    line-height:    9.17rem;
+    line-height:    clamp(8rem, 24.56vw, 16.5rem);
     letter-spacing: 0;
 }
 @mixin text-preset-2{
     font-family:    'Bellefair';
-    font-size:      10rem;
+    font-size:      clamp(6rem, 10.5vw, 9.6rem);
+    @media screen and (max-width: 450px){
+       font-size:      clamp(3rem, 15vw, 6rem);
+    }
     font-weight:    400;
-    line-height:    11.46%;
     letter-spacing: 0;
 }
 @mixin text-preset-3{
     font-family:    'Bellefair';
-    font-size:      5.6rem;
+    font-size:      clamp(2.4rem, 5.3vw, 5.6rem);
     font-weight:    400;
-    line-height:    6.42%;
     letter-spacing: 0;
 }
 @mixin text-preset-4{
     font-family:    'Bellefair';
-    font-size:      3.2rem;
+    font-size:      clamp(1.8rem, 3.18vw, 3.2rem);
     font-weight:    400;
-    line-height:    3.67%;
+    // line-height:    3.67%;
     letter-spacing: 0;
 }
 @mixin text-preset-5{
     font-family:    'Barlow Condensed';
-    font-size:      2.8rem;
+    font-size:      clamp(1.6rem, 3vw, 2.8rem);
     font-weight:    400;
     line-height:    3.36rem;
-    letter-spacing: .4rem;
+    letter-spacing: clamp(.3rem, .8vw, .4rem);
 }
 @mixin text-preset-6{
     font-family:    'Bellefair';
@@ -83,7 +77,6 @@ $s-1600: 12.8rem;
     font-family:    'Barlow Condensed';
     font-size:      1.4rem;
     font-weight:    400;
-    line-height:    1.68%;
     letter-spacing: .2rem;
 }
 @mixin text-preset-8{
@@ -95,14 +88,7 @@ $s-1600: 12.8rem;
 }
 @mixin text-preset-9{
     font-family:    'Barlow';
-    font-size:      1.8rem;
-    font-weight:    400;
-    line-height:    180%;
-    letter-spacing: 0;
-}
-@mixin text-preset-9-mobile{
-    font-family:    'Barlow';
-    font-size:      1.5rem;
+    font-size:      clamp(1.5rem, 2.1vw, 1.8rem);
     font-weight:    400;
     line-height:    180%;
     letter-spacing: 0;
@@ -112,4 +98,89 @@ $s-1600: 12.8rem;
     flex-direction:  $direction;
     justify-content: $main-axis;
     align-items:     $cross-axis;
+}
+@mixin home-bg{
+    filter: contrast(106%);
+    @media screen and (max-width: 450px) {
+        background-image: url(../assets/img/home/background-home-mobile.jpg);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1025px){
+        background-image: url(../assets/img/home/background-home-tablet.jpg);
+    }
+    @media screen and (min-width: 1025px) {
+        background-image: url(../assets/img/home/background-home-desktop.jpg);
+    }
+}
+@mixin destination-bg{
+    @media screen and (max-width: 450px) {
+        background-image: url(../assets/img/destination/background-destination-mobile.jpg);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1025px){
+        background-image: url(../assets/img/destination/background-destination-tablet.jpg);
+    }
+    @media screen and (min-width: 1025px) {
+        background-image: url(../assets/img/destination/background-destination-desktop.jpg);
+    }
+}
+@mixin crew-bg{
+    @media screen and (max-width: 450px) {
+        background-image: url(../assets/img/crew/background-crew-mobile.jpg);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1025px){
+        background-image: url(../assets/img/crew/background-crew-tablet.jpg);
+    }
+    @media screen and (min-width: 1025px) {
+        background-image: url(../assets/img/crew/background-crew-desktop.jpg);
+    }    
+}
+@mixin technology-bg{
+    @media screen and (max-width: 450px) {
+        background-image: url(../assets/img/technology/background-technology-mobile.jpg);
+    }
+    @media screen and (min-width: 450px) and (max-width: 1025px){
+        background-image: url(../assets/img/technology/background-technology-tablet.jpg);
+    }
+    @media screen and (min-width: 1025px) {
+        background-image: url(../assets/img/technology/background-technology-desktop.jpg);
+    }    
+}
+@mixin horizontal-line{
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
+    width: 100%;
+}
+@mixin thematicallPage{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include flex(column, flex-start, flex-start);
+    gap: 2.4vh 0;
+    @media screen and (max-width: 450px) {
+        @include flex(column, flex-start, center);
+        padding: clamp(2rem, 3vh, 3.2rem) 0;
+    }
+    @media screen and (min-width: 450px) and (max-width: 1024px){
+        padding: 4vh 0;
+    }
+    @media screen and (min-width: 1025px) {
+        padding: 4.69vh 0;
+    }
+}
+@mixin item{
+    width: 100%;
+    height: 100%;
+    @include flex(column, flex-start, center);
+    gap: 3.2rem;
+    @media screen and (min-width: 1024px) {
+        @include flex(row, space-around, center);
+    }
+}
+@mixin text-wrapper-style($row-gap, $max-w){
+    @include flex(column, flex-start, center);
+    gap: $row-gap 0;
+    max-width: $max-w;
+    @media screen and (min-width: 1024px) {
+        @include flex(column, flex-start, flex-start);
+        text-align: start;
+    }
 }

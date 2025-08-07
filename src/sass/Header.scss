@@ -1,4 +1,6 @@
 .header{
+    position: relative;
+    flex-shrink: 0;
     width: 100%;
     height: $s-1200;
     @include flex(row, space-between, center);
@@ -10,14 +12,34 @@
         margin-top: 4rem;
     }
 }
+.header__logo-wrapper{
+    position: relative;
+    z-index: 100;
+    @include flex(row, flex-start, center);
+    gap: 3vw 0;
+    width: 100%;
+}
 .header__logo{
     width: $s-600;
     aspect-ratio: 1/1;
     cursor: pointer;
-    margin: 0 clamp(4rem, 4.5vw, 7rem);
+    margin: 0 
+            clamp(2rem, 2.25vw, 7rem)
+            0
+            clamp(4rem, 4.5vw, 7rem);
     @media screen and (max-width: 450px) {
         margin: 0 clamp(1rem, 6.5vw, 3rem);
         width: $s-500;
+    }
+}
+
+.header__logo-line{
+    @include horizontal-line;
+    position: relative;
+    left: $s-400;
+    display: none;
+    @media screen and (min-width: 1024px){
+        display: block;
     }
 }
 .header__side-menu{
@@ -29,6 +51,16 @@
     }
     @media screen and (max-width: 450px) {
         margin: 0 clamp(1rem, 6.5vw, 3rem);
+    }
+}
+.header__navigation-wrapper{
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(40px);
+    padding: 0 clamp(4rem, 4.5vw, 7rem) 0 clamp(8rem, 11vw, 17rem);
+    height: 100%;
+    @include flex(column, center, flex-end);
+    @media screen and (max-width: 767px) {
+            display: none;
     }
 }
 

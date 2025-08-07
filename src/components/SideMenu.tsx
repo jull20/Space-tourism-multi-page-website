@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navigation   from "./Navigations";
+import {HeaderTabsMenu}   from "./TabsMenu";
 
 export default function SideMenu({onClose}: {onClose:()=>void}){
     const [startCloseAnimation, setStartCloseAnimation] = useState<boolean>(false);
@@ -15,7 +15,7 @@ export default function SideMenu({onClose}: {onClose:()=>void}){
                 <button className="sideMenu__close" onClick={closeHandle}>
                     <img width={19} height={19} src="shared/icon-close.svg" alt="icon for closing the side menu" />
                 </button>
-                <Navigation />
+                <HeaderTabsMenu />
             </div>
         </div>
     )

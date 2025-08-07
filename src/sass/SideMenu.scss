@@ -16,7 +16,7 @@
     @include flex(column, flex-start, flex-start);
     gap: $s-1000 0;
     animation-name: openMenu;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 
@@ -32,7 +32,7 @@
 }
 .closeMenuAnimation{
     animation-name: closeMenu;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }

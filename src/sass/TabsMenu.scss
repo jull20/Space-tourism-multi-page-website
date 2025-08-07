@@ -1,0 +1,103 @@
+@mixin tabs-menu{
+    width: 100%;
+    height: 100%;
+}
+@mixin horizontal-list{
+    @include flex(row, center, center);
+    height: 100%;
+    @media screen and (min-width: 1024px){
+        @include flex(row, flex-start, center);
+    }
+}
+@mixin vertical-list{
+    @include flex(column, flex-start, flex-start);
+    gap: $s-400 0;
+    width: 100%;
+}
+@mixin numbered-list{
+    counter-reset: item -1;
+    list-style-type: none;
+}
+@mixin tabs-menu-link{
+    @include text-preset-8;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    transition: 300ms;
+    & a{
+        color: $white;
+    }
+    &.currentPage {
+        border-color: $white;
+    }
+    &:active {
+        filter: brightness(70%);
+        border-color: $white;
+    }
+    @media screen and (min-width: 1024px) {
+        &:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+@mixin horizontal-link{
+    border-right: 3px solid transparent;
+    width: 100%;
+    & a { width: 100%; }
+}
+@mixin vertical-link{
+    border-bottom: 3px solid transparent;
+    height: 100%;
+    & a { height: 100%; }
+}
+@mixin numbered-link{
+    & a{
+        @include flex(row, flex-start, center);
+        gap: 0 12px;
+        &::before {
+            display: inline-block;
+            content: '0' counter(item) " ";
+            counter-increment: item;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.headerTabsMenu{
+    @include tabs-menu;
+    @media screen and (max-width: 767px){
+        height: auto;
+    }
+}
+.headerTabsMenu__list{
+    @include numbered-list;
+    @include horizontal-list;
+    gap: 0 $s-600;
+    @media screen and (max-width: 767px){
+        @include vertical-list;
+    }
+}
+.headerTabsMenu__link{
+    @include tabs-menu-link;
+    @include numbered-link;
+    @media screen and (min-width: 767px){
+        @include vertical-link;
+    }
+    @media screen and (max-width: 767px){
+        @include horizontal-link;
+    }
+}
+
+
+.destinationTabsMenu{
+    @include tabs-menu;
+}
+.destinationTabsMenu__list{
+    @include horizontal-list;
+    gap: 0 $s-400;
+}
+.destinationTabsMenu__link{
+    @include tabs-menu-link;
+    @include vertical-link;
+}

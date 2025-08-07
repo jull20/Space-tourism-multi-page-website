@@ -1,48 +1,55 @@
 @import 'design-system';
 @import 'Header';
-@import 'Navigations';
+@import 'TabsMenu';
 @import 'SideMenu';
 @import 'Home';
+@import 'Destinations';
+@import 'PageTitle';
+@import 'Crew';
+@import 'Pagination';
+@import 'Technology';
+@import 'PageTextContent';
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+}
+* img{
+    max-height: 100%;
+    max-width:  100%;
+    aspect-ratio: auto;
 }
 html{
     font-size: 62.5%;
 }
 #root{
     width: 100vw;
-    height: 100vh;
     min-height: 100vh;
+    overflow-x: hidden;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    overflow-x: hidden;
-    filter: contrast(106%);
-    @include flex(column, flex-start, center);
-    @media screen and (max-width: 450px) {
-        background-image: url(../assets/img/home/background-home-mobile.jpg);
-    }
-    @media screen and (min-width: 450px) and (max-width: 1025px){
-        background-image: url(../assets/img/home/background-home-tablet.jpg);
-    }
-    @media screen and (min-width: 1025px) {
-        background-image: url(../assets/img/home/background-home-desktop.jpg);
-    }
+    display: grid;
+    grid-template-rows: max-content auto;
+    justify-items: center;
+    &:has(.home-bg)       { @include home-bg; }
+    &:has(.destination-bg){ @include destination-bg; }
+    &:has(.crew-bg)       { @include crew-bg; }
+    &:has(.technology-bg) { @include technology-bg; }
 }
+
+
+
 .main{
-    height: 100%;
+    display: flex;
     @media screen and (max-width: 450px) {
-        padding: clamp(2rem, 7vw, 3.2rem) clamp(2.4rem, 5vw, 6rem);
-    //     width: 100%;
-    //     padding: 24px;
+        width: clamp(25rem, 87.2vw, 41rem);
     }
     @media screen and (min-width: 450px) and (max-width: 1024px){
-        // padding: 128px 40px;
-        padding: clamp(3rem, 17vw, 12.8rem) clamp(2.4rem, 5vw, 6rem) 0 clamp(2.4rem, 5vw, 6rem);
+        width: clamp(40rem, 89.59vw, 90rem);
     }
     @media screen and (min-width: 1025px) {
-        padding: 128px 0;
+        width: clamp(90rem, 77.1vw, 120rem);
     }
 }

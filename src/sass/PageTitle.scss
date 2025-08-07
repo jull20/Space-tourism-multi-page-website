@@ -1,0 +1,20 @@
+.pageTitle{
+    flex-grow: 0;
+
+    width: 100%;
+    @include flex(row, flex-start, center);
+    gap: 0 2.4rem;
+    @media screen and (max-width: 450px) {
+        @include flex(row, center, center);
+    }
+}
+.pageTitle__part-number{
+    color: $white;
+    opacity: 25%;
+    @include text-preset-5;
+    font-weight: bold;
+}
+.pageTitle__title{
+    color: $white;
+    @include text-preset-5;
+}
