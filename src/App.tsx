@@ -29,38 +29,5 @@ export default function App() {
   )
 }
 
-// type dataType = {
-//   crew: crewType[],
-//   destinations: destinationType[],
-//   technology: technologyType[]
-// }
-// type destinationType = {
-//   name: string,
-//   images: {
-//     png:  string,
-//     webp: string
-//   },
-//   description: string,
-//   distance: string,
-//   travel: string
-// }
-// type crewType = {
-//   name: string,
-//   images: {
-//     png:  string,
-//     webp: string
-//   },
-//   role: string,
-//   bio: string
-// }
-// type technologyType = {
-//   name: string,
-//   images:{
-//     portrait:string,
-//     landscape:string
-//   },
-//   description: string
-// }
-
 
 

@@ -11,9 +11,9 @@ export default function Home(){
           textLg='SPACE'
         />
       </div>
-      <div className="button-wrapper">
+      <button className="button-wrapper">
         <Link className="home__exploreBtn" to='/destination'>explore</Link>
-      </div>
+      </button>
     </section>
   )
 }

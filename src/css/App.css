@@ -369,66 +369,35 @@
 }
 
 .button-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-@media screen and (max-width: 450px) {
-  .button-wrapper {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .button-wrapper {
-    width: auto;
-  }
-}
-
-.home__exploreBtn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #FFFFFF;
   width: clamp(10rem, 39vw, 27.2rem);
   aspect-ratio: 1/1;
   border-radius: 100%;
-  background-color: #FFFFFF;
-  color: #0B0D17;
-  font-family: "Bellefair";
-  font-size: clamp(1.8rem, 3.18vw, 3.2rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: uppercase;
   outline: 0 solid rgba(255, 255, 255, 0.13);
   transition: outline 1s;
 }
-.home__exploreBtn:hover {
+.button-wrapper:hover {
   outline: 88px solid rgba(255, 255, 255, 0.13);
   color: rgba(11, 13, 23, 0.5);
 }
 
-@keyframes exploreBorderUp {
-  from {
-    outline: 0 solid rgba(255, 255, 255, 0.13);
-  }
-  to {
-    outline: 88px solid rgba(255, 255, 255, 0.13);
-  }
+.home__exploreBtn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #0B0D17;
+  text-transform: uppercase;
+  font-family: "Bellefair";
+  font-size: clamp(1.8rem, 3.18vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0;
 }
-@keyframes exploreBorderDown {
-  from {
-    outline: 88px solid rgba(255, 255, 255, 0.13);
-  }
-  to {
-    outline: 0 solid rgba(255, 255, 255, 0.13);
-  }
-}
+
 .destination {
   width: 100%;
   height: 100%;
@@ -460,6 +429,7 @@
 }
 
 .destination-item {
+  flex-grow: 1;
   width: 100%;
   height: 100%;
   display: flex;
@@ -899,9 +869,9 @@
 }
 
 .technology-item {
+  flex-grow: 1;
   width: 100%;
   height: 100%;
-  flex-grow: 1;
   padding-top: 64px;
   display: flex;
   flex-direction: column-reverse;
