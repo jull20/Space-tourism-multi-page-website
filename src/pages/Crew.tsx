@@ -2,7 +2,6 @@ import { useState } from "react"
 import PageTitle from "../components/PageTitle";
 import {Pagination} from "../components/Pagination";
 import PageTextContent from "../components/PageTextContent";
-import data from '../assets/data.json'
 
 type crewType = {
   name: string,
@@ -13,10 +12,26 @@ type crewType = {
   role: string,
   bio: string
 }
+const defaultCrew = {
+name: '',
+  images: {
+    png:  '',
+    webp: ''
+  },
+  role: '',
+  bio: ''
+}
+function getCachedCrew(): crewType[] {
+  const data = sessionStorage.getItem('crew');
+  if(data) return JSON.parse(data);
+  return Array(defaultCrew);
+}
 
-export default function Crew(){
-    const [currIndex, setCurrIndex] = useState<number>(0);
-    const crewData: crewType[] = data.crew; 
+export default function Crew({crewData}: {crewData:crewType[]}){
+  const [currIndex, setCurrIndex] = useState<number>(0);
+  if(!crewData){
+    crewData = getCachedCrew();
+  }
   return(
     <section className="crew">
       <PageTitle

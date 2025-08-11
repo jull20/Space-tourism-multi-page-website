@@ -2,7 +2,6 @@ import { useState } from "react"
 import { DestinationTabsMenu } from "../components/TabsMenu";
 import PageTitle from "../components/PageTitle";
 import PageTextContent from "../components/PageTextContent";
-import data from '../assets/data.json'
 
 type destinationType = {
   name: string,
@@ -14,10 +13,27 @@ type destinationType = {
   distance: string,
   travel: string
 }
+const defaultDestination = {
+  name: '',
+  images: {
+    png:  '',
+    webp: ''
+  },
+  description: '',
+  distance: '',
+  travel: ''
+}
+function getCachedDestination(): destinationType[] {
+  const data = sessionStorage.getItem('destination');
+  if(data) return JSON.parse(data);
+  return Array(defaultDestination);
+}
 
-export default function Destination(){
+export default function Destination({destinationData}: {destinationData:destinationType[]}){
   const [currIndex, setCurrIndex] = useState<number>(0);
-  const destinationData: destinationType[] = data.destinations;
+  if(!destinationData){
+    destinationData = getCachedDestination();
+  }
   return(
     <section className="destination">
       <PageTitle

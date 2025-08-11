@@ -2,7 +2,6 @@ import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import PageTextContent from "../components/PageTextContent";
 import {NumberedPagination} from "../components/Pagination";
-import data from '../assets/data.json'
 
 type technologyType = {
   name: string,
@@ -12,20 +11,25 @@ type technologyType = {
   },
   description: string
 }
+const defaultTechnology = {
+  name: '',
+  images:{
+    portrait:'',
+    landscape:''
+  },
+  description: ''
+}
+function getCachedTechnology(): technologyType[] {
+  const data = sessionStorage.getItem('crew');
+  if(data) return JSON.parse(data);
+  return Array(defaultTechnology);
+}
 
-export default function Technology(){
+export default function Technology({technologyData}: {technologyData:technologyType[]}){
   const [currIndex, setCurrIndex] = useState<number>(0);
-  const technologyData: technologyType[] = data.technology;
-  // const [technologyData, setTechnologyData] = useState<technologyType[]>([]);
-  // useEffect(() => {
-  //   fetch('data.json').then((response) => {
-  //     if(!response.ok) console.log('bad response')
-  //     return response.json()
-  //   }).then((data) => {
-  //     console.log(technologyData)
-  //     if(technologyData.length === 0) setTechnologyData(data.technology);
-  //   })
-  // })
+  if(!technologyData){
+    technologyData = getCachedTechnology();
+  }
   return(
     <section className="technology">
       <PageTitle
