@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { DestinationTabsMenu } from "../components/TabsMenu";
 import PageTitle from "../components/PageTitle";
 import PageTextContent from "../components/PageTextContent";
