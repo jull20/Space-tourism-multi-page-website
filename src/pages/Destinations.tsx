@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { DestinationTabsMenu } from "../components/TabsMenu";
 import PageTitle from "../components/PageTitle";
 import PageTextContent from "../components/PageTextContent";
+import data from '../assets/data.json'
 
 type destinationType = {
   name: string,
@@ -15,17 +16,8 @@ type destinationType = {
 }
 
 export default function Destination(){
-  const [destinationData, setDestinationData] = useState<destinationType[]>(new Array(0));
   const [currIndex, setCurrIndex] = useState<number>(0);
-  useEffect(() => {
-    fetch('data.json').then((response) => {
-      if(!response.ok) console.log('bad response')
-      return response.json()
-    }).then((data) => {
-      if(destinationData.length === 0) setDestinationData(data.destinations);
-    })
-  })
-
+  const destinationData: destinationType[] = data.destinations;
   return(
     <section className="destination">
       <PageTitle

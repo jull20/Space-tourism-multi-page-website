@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import PageTextContent from "../components/PageTextContent";
 import {NumberedPagination} from "../components/Pagination";
+import data from '../assets/data.json'
 
 type technologyType = {
   name: string,
@@ -13,17 +14,18 @@ type technologyType = {
 }
 
 export default function Technology(){
-  const [technologyData, setTechnologyData] = useState<technologyType[]>([]);
   const [currIndex, setCurrIndex] = useState<number>(0);
-  useEffect(() => {
-    fetch('data.json').then((response) => {
-      if(!response.ok) console.log('bad response')
-      return response.json()
-    }).then((data) => {
-      console.log(technologyData)
-      if(technologyData.length === 0) setTechnologyData(data.technology);
-    })
-  })
+  const technologyData: technologyType[] = data.technology;
+  // const [technologyData, setTechnologyData] = useState<technologyType[]>([]);
+  // useEffect(() => {
+  //   fetch('data.json').then((response) => {
+  //     if(!response.ok) console.log('bad response')
+  //     return response.json()
+  //   }).then((data) => {
+  //     console.log(technologyData)
+  //     if(technologyData.length === 0) setTechnologyData(data.technology);
+  //   })
+  // })
   return(
     <section className="technology">
       <PageTitle

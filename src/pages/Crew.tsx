@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import PageTitle from "../components/PageTitle";
 import {Pagination} from "../components/Pagination";
 import PageTextContent from "../components/PageTextContent";
-// import data from '../assets/data.json'
+import data from '../assets/data.json'
 
 type crewType = {
   name: string,
@@ -15,17 +15,8 @@ type crewType = {
 }
 
 export default function Crew(){
-    const [crewData, setCrewData] = useState<crewType[]>(new Array(0));
     const [currIndex, setCurrIndex] = useState<number>(0);
-    useEffect(() => {
-      fetch('data.json').then((response) => {
-        if(!response.ok) console.log('bad response')
-        return response.json()
-      }).then((data) => {
-        if(crewData.length === 0) setCrewData(data.crew);
-      })
-    })
-    // console.log(data)
+    const crewData: crewType[] = data.crew; 
   return(
     <section className="crew">
       <PageTitle
