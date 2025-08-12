@@ -1,5 +1,6 @@
 .paginatinon{
     width: auto;
+    list-style-type: none;
     @include flex(row, center, center);
     gap: 0 1.6rem;
     @media screen and (min-width:1024px) {
@@ -13,7 +14,7 @@
         background-color: rgba(255, 255, 255, 0.2);
         border-radius: 100%;
         transition: 300ms;
-        &:checked{
+        &:checked, &:checked:hover{
             background-color: white;
         }
         &:active{
@@ -42,10 +43,22 @@
     list-style-type: none;
     
 
-    & .radioBtn__wrapper{
-        transition: 300ms;
+    & .radioBtn__item{
         position: relative;
-        &::before {
+        appearance: none;
+        width:  clamp(4rem, 7.4vw, 8rem);
+        aspect-ratio: 1/1;
+        border: .1rem solid rgba(255, 255, 255, 0.25);
+        border-radius: 100%;
+        transition: 300ms;
+
+        &:active{ filter: brightness(50%); }
+        &:hover{ border: .1rem solid rgba(255, 255, 255); }
+        &:checked{
+            background-color: white;
+            &::after{ color: black; }
+        }
+        &::after { 
             position: absolute;
             top: 50%;
             left: 50%;
@@ -56,32 +69,6 @@
             color: white;
             @include text-preset-4;
         }
-        &:has(.radioBtn__item:checked){
-            &::before{
-                color: black;
-            }
-        }
-        &:active{
-            filter: brightness(50%);
-        }
-    }
-    & .radioBtn__item{
-        appearance: none;
-        width:  clamp(4rem, 7.4vw, 8rem);
-        aspect-ratio: 1/1;
-        border: .1rem solid rgba(255, 255, 255, 0.25);
-        border-radius: 100%;
-        transition: 300ms;
-        &:checked{
-            background-color: white;
-        }
-        @media screen and (min-width:1024px) {
-            &:hover{
-                border: .1rem solid rgba(255, 255, 255);
-            }
-        }
 
-
-        
     }
 }
