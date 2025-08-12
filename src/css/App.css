@@ -759,17 +759,10 @@
 .paginatinon .radioBtn__item {
   appearance: none;
   width: 1rem;
-  aspect-ratio: 1/1;
+  height: 1rem;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 100%;
   transition: 300ms;
-}
-@supports not (aspect-ratio: 1/1) {
-  .paginatinon .radioBtn__item {
-    background-color: red;
-    width: 3rem;
-    height: 3rem;
-  }
 }
 .paginatinon .radioBtn__item:checked, .paginatinon .radioBtn__item:checked:hover {
   background-color: white;
@@ -780,6 +773,7 @@
 @media screen and (min-width: 1024px) {
   .paginatinon .radioBtn__item {
     width: 1.5rem;
+    height: 1.5rem;
   }
   .paginatinon .radioBtn__item:hover {
     background-color: rgba(255, 255, 255, 0.5);
@@ -809,7 +803,7 @@
   position: relative;
   appearance: none;
   width: clamp(4rem, 7.4vw, 8rem);
-  aspect-ratio: 1/1;
+  height: clamp(4rem, 7.4vw, 8rem);
   border: 0.1rem solid rgba(255, 255, 255, 0.25);
   border-radius: 100%;
   transition: 300ms;
