@@ -727,6 +727,9 @@
     top: 42px;
   }
 }
+.crew-item__img img {
+  width: 60vw;
+}
 .crew-item__img::before {
   content: "";
   position: absolute;
