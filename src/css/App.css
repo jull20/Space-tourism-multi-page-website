@@ -764,6 +764,13 @@
   border-radius: 100%;
   transition: 300ms;
 }
+@supports not (aspect-ratio: 1/1) {
+  .paginatinon .radioBtn__item {
+    background-color: red;
+    width: 3rem;
+    height: 3rem;
+  }
+}
 .paginatinon .radioBtn__item:checked, .paginatinon .radioBtn__item:checked:hover {
   background-color: white;
 }

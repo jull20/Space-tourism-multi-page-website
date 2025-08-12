@@ -10,8 +10,11 @@ export default function SideMenu({onClose}: {onClose:()=>void}){
         }, 1500);
     }
     return(
-        <div className='sideMenu'>
-            <div className={"sideMenu__content " + (startCloseAnimation ? 'closeMenuAnimation' : '')}>
+        <div className='sideMenu' onClick={closeHandle}>
+            <div 
+                onClick={(event:React.MouseEvent<HTMLElement>) => event.stopPropagation()} 
+                className={"sideMenu__content " + (startCloseAnimation ? 'closeMenuAnimation' : '')}
+            >
                 <button className="sideMenu__close" onClick={closeHandle}>
                     <img width={19} height={19} src="shared/icon-close.svg" alt="icon for closing the side menu" />
                 </button>
