@@ -729,6 +729,7 @@
 }
 .crew-item__img img {
   width: auto;
+  height: auto;
 }
 .crew-item__img::before {
   content: "";
