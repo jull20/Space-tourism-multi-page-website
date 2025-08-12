@@ -728,8 +728,7 @@
   }
 }
 .crew-item__img img {
-  width: auto;
-  height: auto;
+  width: 100%;
 }
 .crew-item__img::before {
   content: "";
