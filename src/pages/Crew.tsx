@@ -52,7 +52,7 @@ export default function Crew({crewData}: {crewData:crewType[]}){
           </div>
         </div>
         <div className="crew-item__img">
-          <img src={crewData[currIndex]?.images.png} alt="sfedjhosldjfoisajdofi" />
+          <img src={crewData[currIndex]?.images.webp} alt={`${crewData[currIndex]?.role} ${crewData[currIndex]?.name} photo`} />
         </div>
       </div>
     </section>
